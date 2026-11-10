@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nosso cantinho ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff1f3;--card:#ffffff;--tx:#4a2430;--mut:#8a5b68;--ac:#e0485f;--ac2:#ff8fa3;--bd:#f6c9d2;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1219;--card:#3a1a24;--tx:#ffe6ea;--mut:#d8a3b0;--ac:#ff6b85;--ac2:#c2354f;--bd:#5a2a38;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2a1219;--card:#3a1a24;--tx:#ffe6ea;--mut:#d8a3b0;--ac:#ff6b85;--ac2:#c2354f;--bd:#5a2a38;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Quicksand',system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+h1,h2,.script{font-family:'Dancing Script',cursive,serif;font-weight:600;color:var(--ac)}
+h1{font-size:clamp(2.4rem,9vw,4rem);margin:.2em 0}
+h2{font-size:2.2rem;margin:.2em 0 .6em;text-align:center}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px;background:var(--bg);border-bottom:1px solid var(--bd);justify-content:center}
+nav a{white-space:nowrap;text-decoration:none;color:var(--mut);padding:8px 14px;border-radius:99px;font-weight:600;font-size:.9rem}
+nav a.on{background:var(--ac);color:#fff}
+main{max-width:760px;margin:0 auto;padding:24px 16px 60px;position:relative;z-index:1}
+section{display:none;animation:in .5s}
+section.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 6px 20px rgba(224,72,95,.08)}
+.center{text-align:center}
+.btn{background:var(--ac);color:#fff;border:0;padding:12px 22px;border-radius:99px;font:600 1rem 'Quicksand',sans-serif;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:scale(1.06)}
+.btn.alt{background:var(--card);color:var(--ac);border:1px solid var(--ac)}
+.counter{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px;margin-top:14px}
+.counter div{background:var(--bg);border-radius:14px;padding:12px 4px}
+.counter b{display:block;font-size:1.8rem;color:var(--ac)}
+.counter span{font-size:.75rem;color:var(--mut)}
+input{font:inherit;padding:10px 14px;border-radius:12px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);max-width:100%}
+.row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.big{font-size:4.5rem;animation:beat 1.4s infinite;display:inline-block}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.2)}30%{transform:scale(1)}45%{transform:scale(1.15)}}
+.tl{border-left:3px solid var(--ac2);margin-left:10px;padding-left:20px}
+.tl .card{position:relative}
+.tl .card::before{content:"❤";position:absolute;left:-34px;top:16px;color:var(--ac);background:var(--bg);font-size:1.1rem}
+.tl small{color:var(--ac);font-weight:600}
+.reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.flip{perspective:700px;height:130px;cursor:pointer}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.open>div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;border-radius:18px;backface-visibility:hidden;font-size:.95rem}
+.flip .f{background:var(--ac);color:#fff;font-size:2.2rem}
+.flip .b{background:var(--card);border:2px solid var(--ac2);transform:rotateY(180deg)}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:380px;margin:12px auto}
+.mc{aspect-ratio:1;border-radius:14px;border:0;font-size:2rem;background:var(--ac);color:#fff;cursor:pointer;transition:transform .3s}
+.mc.up{background:var(--card);border:2px solid var(--ac2);transform:rotateY(360deg)}
+.mc.ok{background:var(--ac2);opacity:.85}
+#date-res{font-size:1.4rem;min-height:3em;color:var(--ac);font-weight:600}
+.ask{position:relative;height:260px}
+.ask .btn{position:absolute}
+.letter{background:var(--card);border:1px dashed var(--ac);border-radius:6px;padding:24px;line-height:1.8;font-size:1.05rem}
+.h{position:fixed;pointer-events:none;z-index:0;user-select:none;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+.pop{position:fixed;z-index:9;pointer-events:none;animation:pop .9s ease-out forwards}
+@keyframes pop{to{transform:translate(var(--x),var(--y)) scale(.4);opacity:0}}
+[contenteditable]{outline:none;border-radius:6px}
+[contenteditable]:focus{background:var(--bg)}
+.hint{font-size:.8rem;color:var(--mut)}
+.tg{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6;background:var(--card);border:1px solid var(--bd);border-radius:50%;width:42px;height:42px;cursor:pointer;font-size:1.1rem}
+</style>
+</head>
+<body>
+<nav id="nav">
+<a href="#inicio">Início</a><a href="#historia">Nossa história</a><a href="#motivos">Motivos</a><a href="#jogo">Jogo</a><a href="#encontro">Encontro</a><a href="#surpresa">Surpresa</a>
+</nav>
+<main>
+
+<section id="inicio" class="center">
+<div class="big">❤️</div>
+<h1><span class="n1">Ele</span> &amp; <span class="n2">Ela</span></h1>
+<p class="script" style="font-size:1.6rem;margin:0">juntos há…</p>
+<div class="card"><div class="counter" id="cnt"></div></div>
+<div class="card">
+<p><b>Personalize o site</b></p>
+<div class="row"><input id="i1" placeholder="Seu nome"><input id="i2" placeholder="Nome dela"></div>
+<div class="row"><label>Início do namoro: <input type="date" id="dt"></label></div>
+<button class="btn" id="sv">Salvar</button>
+<p class="hint">Dica: nas outras páginas, clique nos textos para editar. Tudo fica salvo neste aparelho.</p>
+</div>
+<button class="btn alt" id="burst">Clique para espalhar amor 💕</button>
+</section>
+
+<section id="historia">
+<h2>Nossa história</h2>
+<p class="hint center">Toque em qualquer texto para escrever a sua versão.</p>
+<div class="tl">
+<div class="card"><small contenteditable data-edit="t1d">O dia em que nos conhecemos</small><p contenteditable data-edit="t1">Conte aqui onde foi, o que vocês vestiam, o primeiro sorriso…</p></div>
+<div class="card"><small contenteditable data-edit="t2d">Nosso primeiro encontro</small><p contenteditable data-edit="t2">Escreva como foi o nervosismo, o lugar e o que vocês conversaram.</p></div>
+<div class="card"><small contenteditable data-edit="t3d">O primeiro “eu te amo”</small><p contenteditable data-edit="t3">Quem disse primeiro? Onde estavam?</p></div>
+<div class="card"><small contenteditable data-edit="t4d">Nossa viagem favorita</small><p contenteditable data-edit="t4">Aquele passeio que ficou guardado no coração.</p></div>
+<div class="card"><small contenteditable data-edit="t5d">E o que ainda vem por aí</small><p contenteditable data-edit="t5">Planos, sonhos, a casa, os cachorros, o mundo todo…</p></div>
+</div>
+</section>
+
+<section id="motivos">
+<h2>Motivos para te amar</h2>
+<p class="hint center">Toque nas cartas para virar. Edite o verso para escrever os seus motivos.</p>
+<div class="reasons" id="rs"></div>
+</section>
+
+<section id="jogo" class="center">
+<h2>Jogo da memória</h2>
+<p>Encontre os pares… como eu te encontrei. <b id="mv">0</b> jogadas</p>
+<div class="mem" id="mem"></div>
+<button class="btn alt" id="rst">Jogar de novo</button>
+<p id="win" class="script" style="font-size:2rem;min-height:1.5em"></p>
+</section>
+
+<section id="encontro" class="center">
+<h2>Sorteio de encontro</h2>
+<p>Sem ideia do que fazer? Deixe o destino decidir nosso próximo date.</p>
+<div class="card"><div id="date-res">🎲</div><button class="btn" id="dr">Sortear</button></div>
+</section>
+
+<section id="surpresa" class="center">
+<h2>Uma pergunta importante</h2>
+<div id="q">
+<p style="font-size:1.3rem">Você quer continuar sendo a minha pessoa favorita?</p>
+<div class="ask" id="ask"><button class="btn" id="yes" style="left:20%;top:80px">Sim 💖</button><button class="btn alt" id="no" style="left:55%;top:80px">Não</button></div>
+</div>
+<div id="ans" style="display:none">
+<div class="big">💍</div>
+<div class="letter" contenteditable data-edit="letter"><p class="script" style="font-size:1.8rem;margin:0">Meu amor,</p>Eu sabia que você ia dizer sim. Obrigado por cada abraço, cada risada e cada dia ao seu lado. Esta é a minha carta para você: edite este texto e escreva tudo o que o seu coração quiser dizer. Te amo hoje, amanhã e sempre. ❤️</div>
+</div>
+</section>
+
+</main>
+<button class="tg" id="tg" title="Tema">🌗</button>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const S={get(k,d){try{const v=localStorage.getItem('nc_'+k);return v===null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem('nc_'+k,v)}catch(e){}}};
+/* router */
+function route(){const h=(location.hash.slice(1)||'inicio');const ok=$('#'+h)&&$('#'+h).tagName==='SECTION'?h:'inicio';
+$$('section').forEach(s=>s.classList.toggle('on',s.id===ok));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+ok));window.scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+/* hearts */
+function floatH(){const e=document.createElement('div');e.className='h';e.textContent=['❤','💗','💕','🌹'][Math.random()*4|0];
+e.style.cssText+=`left:${Math.random()*100}vw;bottom:-40px;font-size:${14+Math.random()*22}px;opacity:.35;animation-duration:${8+Math.random()*8}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),17000)}
+setInterval(floatH,900);
+function burst(x,y,n=14){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='pop';e.textContent=['❤️','💖','💕','✨'][i%4];
+const a=Math.random()*6.28,d=60+Math.random()*120;e.style.cssText+=`left:${x}px;top:${y}px;--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d}px;font-size:${16+Math.random()*16}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),1000)}}
+$('#burst').onclick=e=>burst(e.clientX,e.clientY,24);
+addEventListener('click',e=>{if(e.target.closest('.mc,.flip,input'))return;burst(e.clientX,e.clientY,5)});
+/* names, date, counter */
+function names(){const a=S.get('n1','Ele'),b=S.get('n2','Ela');$$('.n1').forEach(e=>e.textContent=a);$$('.n2').forEach(e=>e.textContent=b);document.title=a+' & '+b+' ❤️'}
+$('#i1').value=S.get('n1','');$('#i2').value=S.get('n2','');$('#dt').value=S.get('dt','2024-02-14');names();
+$('#sv').onclick=e=>{S.set('n1',$('#i1').value.trim()||'Ele');S.set('n2',$('#i2').value.trim()||'Ela');S.set('dt',$('#dt').value||'2024-02-14');names();tick();burst(e.clientX,e.clientY,18)};
+function tick(){const st=new Date((S.get('dt','2024-02-14'))+'T00:00:00'),n=new Date();let ms=Math.max(0,n-st);
+let y=n.getFullYear()-st.getFullYear(),m=n.getMonth()-st.getMonth(),d=n.getDate()-st.getDate();if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate()}if(m<0){y--;m+=12}
+const v=[[y,'anos'],[m,'meses'],[d,'dias'],[Math.floor(ms/36e5)%24,'horas'],[Math.floor(ms/6e4)%60,'min'],[Math.floor(ms/1e3)%60,'seg']];
+$('#cnt').innerHTML=v.map(x=>`<div><b>${Math.max(0,x[0])}</b><span>${x[1]}</span></div>`).join('')}
+tick();setInterval(tick,1000);
+/* editable text */
+$$('[data-edit]').forEach(e=>{const k='e_'+e.dataset.edit,v=S.get(k,null);if(v!==null)e.innerHTML=v;e.contentEditable='true';e.addEventListener('input',()=>S.set(k,e.innerHTML))});
+/* reasons */
+const R=['Seu sorriso ilumina meu dia','Você me faz rir sem esforço','Seu abraço é meu lugar favorito','Você me entende só com um olhar','Sua paciência comigo','Seu jeitinho único','Você acredita em mim','Com você tudo é mais leve'];
+$('#rs').innerHTML=R.map((t,i)=>`<div class="flip"><div><span class="f">💌</span><span class="b" contenteditable="false" data-edit="r${i}">${t}</span></div></div>`).join('');
+$$('#rs .b').forEach(e=>{const v=S.get('e_r'+e.dataset.edit.slice(1),null);if(v!==null)e.innerHTML=v;e.addEventListener('input',()=>S.set('e_'+e.dataset.edit,e.innerHTML))});
+$$('.flip').forEach(f=>{f.onclick=ev=>{const b=f.querySelector('.b');if(f.classList.contains('open')&&ev.target===b){b.contentEditable='true';b.focus();return}b.contentEditable='false';f.classList.toggle('open')}});
+/* memory game */
+let first=null,lock=false,moves=0,pairs=0;
+function newGame(){const em=['💌','🌹','🍫','🎬','🌙','☕','🧸','💍'];const d=[...em,...em].sort(()=>Math.random()-.5);moves=0;pairs=0;first=null;lock=false;$('#mv').textContent=0;$('#win').textContent='';
+$('#mem').innerHTML=d.map(x=>`<button class="mc" data-v="${x}">❤</button>`).join('');
+$$('.mc').forEach(c=>c.onclick=()=>{if(lock||c.classList.contains('up')||c.classList.contains('ok'))return;c.classList.add('up');c.textContent=c.dataset.v;
+if(!first){first=c;return}moves++;$('#mv').textContent=moves;
+if(first.dataset.v===c.dataset.v){first.classList.add('ok');c.classList.add('ok');first=null;if(++pairs===8){$('#win').textContent='Você me encontrou de novo! 💖';burst(innerWidth/2,innerHeight/2,30)}}
+else{lock=true;const a=first;first=null;setTimeout(()=>{[a,c].forEach(x=>{x.classList.remove('up');x.textContent='❤'});lock=false},800)}})}
+$('#rst').onclick=newGame;newGame();
+/* date ideas */
+const D=['🍕 Noite de pizza e filme em casa','🌅 Ver o pôr do sol juntinhos','🍦 Sair para tomar sorvete','🎲 Noite de jogos de tabuleiro','🍳 Cozinhar uma receita nova juntos','🚗 Viajar sem destino por um dia','📸 Passeio de fotos pela cidade','🛋️ Maratona da nossa série favorita','🌌 Observar estrelas e fazer pedidos','💃 Dançar na sala só nós dois','🧺 Piquenique no parque','✉️ Trocar cartas escritas à mão'];
+$('#dr').onclick=e=>{let n=0;const t=setInterval(()=>{$('#date-res').textContent=D[Math.random()*D.length|0];if(++n>12){clearInterval(t);burst(e.clientX,e.clientY,12)}},90)};
+/* surprise */
+const no=$('#no'),yes=$('#yes'),ask=$('#ask');let sc=1;
+function run(e){e.preventDefault();const w=ask.clientWidth-no.offsetWidth,h=ask.clientHeight-no.offsetHeight;no.style.left=Math.random()*w+'px';no.style.top=Math.random()*h+'px';sc=Math.min(2.2,sc+.15);yes.style.transform=`scale(${sc})`}
+no.addEventListener('mouseover',run);no.addEventListener('touchstart',run);no.addEventListener('click',run);
+yes.onclick=e=>{$('#q').style.display='none';$('#ans').style.display='block';burst(e.clientX,e.clientY,40);setTimeout(()=>burst(innerWidth/2,innerHeight/3,40),400)};
+/* theme */
+$('#tg').onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).colorScheme.includes('dark');r.dataset.theme=d?'light':'dark'};
+</script>
+</body>
+</html>
